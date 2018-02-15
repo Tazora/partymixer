@@ -1,6 +1,9 @@
 import React from 'react';
 
-export default class Songform extends React.Component {
+import SongForm from './components/SongForm.jsx';
+import SongList from './components/SongList.jsx';
+
+export default class SongsWrapper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,15 +32,9 @@ export default class Songform extends React.Component {
 
     render() {
         return (
-            <div className="field is-grouped-centered">
-                <label className="label">Song:</label>
-                <div className="control">
-                    <input className="input" name="artist" type="text" value={this.state.artist} onChange={this.handleInputChange} placeholder="Shakira" />
-                </div>
-                <div className="control">
-                    <input className="input" name="title" type="text" value={this.state.title} onChange={this.handleInputChange} placeholder="Hips don't lie" />
-                </div>
-                <input className="button" type="submit" value="Wunsch abschicken" onClick={this.handleSubmit} />
+            <div>
+            <SongForm />
+            <SongList />
             </div>
         )
     }

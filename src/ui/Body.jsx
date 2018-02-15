@@ -1,9 +1,9 @@
 import React from 'react';
-import SongForm from './components/SongForm';
+import SongsWrapper from './views/SongsWrapper';
 
 const body = () => (
     <div>
-      <SongForm />
+      <SongsWrapper />
     </div>
   );
   
