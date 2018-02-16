@@ -8,8 +8,8 @@ export default class SongsWrapper extends React.Component {
         super(props);
         this.state = {
             wishes: [
-                { artist: "Shakira", title: "Hips don't lie" },
-                { artist: "Ärzte", title: "Unrockbar" },
+                { artist: "Shakira", title: "Hips don't lie", votes: {up: 0, down: 0} },
+                { artist: "Ärzte", title: "Unrockbar", votes: {up: 0, down: 0} },
             ],
         };
     }
