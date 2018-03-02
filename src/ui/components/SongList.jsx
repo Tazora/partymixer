@@ -2,16 +2,14 @@ import React from 'react';
 
 import Song from './Song.jsx';
 
-const SongList = ({ wishes }) => {
-    return (
+const SongList = ( props ) => (
         <div>
-        {wishes.map((wish, index) => {
+        {props.wishes.map((wish, index) => {
             return (
-                <Song wish={wish} index={index} />
+                <Song wish={wish} key={index} />
             );
             })}
         </div>
-    );
-}
+)
 
 export default SongList;

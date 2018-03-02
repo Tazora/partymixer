@@ -3,28 +3,17 @@ import React from 'react';
 export default class Songform extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            artist: "",
-            title: "",
-        };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-
-        this.setState({
-            [name]: value
-        });
+    handleChange(e) {
+        this.props.handleInputChange(e);
     }
 
-    handleSubmit(event) {
-        alert('A artist was submitted: ' + this.state.artist);
-        event.preventDefault();
+    handleSubmit(e) {
+        this.props.handleSubmit(e);
     }
 
     render() {
@@ -32,10 +21,10 @@ export default class Songform extends React.Component {
             <div className="field is-grouped-centered">
                 <label className="label">Song:</label>
                 <div className="control">
-                    <input className="input" name="artist" type="text" value={this.state.artist} onChange={this.handleInputChange} placeholder="Shakira" />
+                    <input className="input" name="artist" type="text" value={this.props.artist} onChange={this.handleChange} placeholder="Shakira" />
                 </div>
                 <div className="control">
-                    <input className="input" name="title" type="text" value={this.state.title} onChange={this.handleInputChange} placeholder="Hips don't lie" />
+                    <input className="input" name="title" type="text" value={this.props.title} onChange={this.handleChange} placeholder="Hips don't lie" />
                 </div>
                 <input className="button" type="submit" value="Wunsch abschicken" onClick={this.handleSubmit} />
             </div>
