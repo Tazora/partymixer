@@ -19,7 +19,7 @@ export default class Songform extends React.Component {
     render() {
         return (
             <div className="field is-grouped-centered">
-                <label className="label">Song:</label>
+                <label className="label">Songwunsch:</label>
                 <div className="control">
                     <input className="input" name="artist" type="text" value={this.props.artist} onChange={this.handleChange} placeholder="Shakira" />
                 </div>

@@ -1,15 +1,30 @@
 import React from 'react';
 
-function handleVote() {
-    console.log("Submit")
+export default class Song extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleVote = this.handleVote.bind(this);
+    }
+
+    handleVote(e) {
+        this.props.handleVote(e, this.props.index);
+    }
+
+    render() {
+        return (
+            <li>
+                {this.props.wish.artist} - {this.props.wish.title} -
+
+                    {this.props.wish.votes.votedUp ?
+                    <button className="button is-primary" onClick={this.handleVote} type="submit" value="up" name="up">Up</button> :
+                    <button className="button" onClick={this.handleVote} type="submit" value="up" name="up">Up</button>}
+                - {this.props.wish.votes.up}
+                {this.props.wish.votes.votedDown ?
+                    <button className="button is-primary" onClick={this.handleVote} type="submit" value="down" name="down">Down</button> :
+                    <button className="button" onClick={this.handleVote} type="submit" value="down" name="down">Down</button>}
+                - {this.props.wish.votes.down}
+            </li>
+        )
+    }
 }
-
-const Song = (props) => (
-    <li key={props.key}>
-        {props.wish.artist} - {props.wish.title} - Upvotes: {props.wish.votes.up} {props.wish.votes.up}
-        <a className="button is-active" onClick={this.handleVote}><i className="far fa-thumbs-down"></i></a>
-        <a className="button is-active" onClick={this.handleVote}><i className="far fa-thumbs-up"></i></a>
-    </li>
-)
-
-export default Song;

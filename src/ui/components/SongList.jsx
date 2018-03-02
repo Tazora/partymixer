@@ -2,14 +2,27 @@ import React from 'react';
 
 import Song from './Song.jsx';
 
-const SongList = ( props ) => (
+export default class SongList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleVote = this.handleVote.bind(this);
+    }
+
+handleVote(e, index) {
+        this.props.handleVote(e, index);
+    }
+
+
+render() {
+    return(
         <div>
-        {props.wishes.map((wish, index) => {
+        {this.props.wishes.map((wish, index) => {
             return (
-                <Song wish={wish} key={index} />
+                <Song wish={wish} key={index} index={index} handleVote={this.handleVote} />
             );
             })}
         </div>
-)
-
-export default SongList;
+    )
+}
+}
